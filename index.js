@@ -2,6 +2,7 @@ import express from "express";
 
 const app = express();
 
+
 app.get("/users", (req, res) => {
 try {
 const name  =  req.query.name;
@@ -14,7 +15,7 @@ const user = users.find((user) => user.name === name);
 if (user) {
   return res.status(200).json({
     message: "User found",
-    data:[ name : user.name, user.age, user.email],
+    data:[ name : user.name, age : user.age,  email: user.email],
   });
 } else {
   return res.status(404).json({
